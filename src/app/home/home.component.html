@@ -1,0 +1,23 @@
+<h1>How to make Spaghetti Carbonara</h1>
+<form [formGroup]="answerForm" (ngSubmit)="onSubmit()">
+  <div cdkDropList (cdkDropListDropped)="drop($event)">
+    <!-- <div *ngFor="let step of steps" class="item" [ngStyle]="{'background-color':step[1], 'color':step[2]}" cdkDrag>
+      {{step[0]}} 
+    </div> -->
+    <div *ngFor="let step of steps" class="item" [ngStyle]="{'background-color':step.bgcolor, 'color':step.fgcolor}" cdkDrag>
+      {{step.activity}} 
+    </div>
+  </div>
+
+  <div>
+    Name
+    <input type="text" formControlName="name">
+    <div *ngIf="submitted && !success && answerForm.controls.name.errors">
+      <h5 *ngIf="answerForm.controls.name.errors.required">ERROR:Your name is required</h5>
+    </div>
+    <input type="submit" value="Submit">
+  </div>
+
+
+  <h5 *ngIf="success">Thank you. This form has been submitted.</h5>
+</form>
