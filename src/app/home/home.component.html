@@ -2,10 +2,10 @@
 <form [formGroup]="answerForm" (ngSubmit)="onSubmit()">
   <div cdkDropList (cdkDropListDropped)="drop($event)">
     <!-- <div *ngFor="let step of steps" class="item" [ngStyle]="{'background-color':step[1], 'color':step[2]}" cdkDrag>
-      {{step[0]}} 
+      {{step[0]}}
     </div> -->
     <div *ngFor="let step of steps" class="item" [ngStyle]="{'background-color':step.bgcolor, 'color':step.fgcolor}" cdkDrag>
-      {{step.activity}} 
+      {{step.activity}}
     </div>
   </div>
 
@@ -17,6 +17,8 @@
     </div>
     <input type="submit" value="Submit">
   </div>
+
+  <my-rating id="myRatingComponent" max-value="6" value="2"></my-rating>
 
 
   <h5 *ngIf="success">Thank you. This form has been submitted.</h5>
